@@ -15,13 +15,16 @@ function App() {
     setBookmarks(newBookmarks);
   }
 
-  let handleReadTime = (reading_time) => {
+  let handleReadTime = (reading_time, id) => {
     let newReadTime = readTime + reading_time;
     setReadTime(newReadTime);
+
+    let remainingBookmark = bookmarks.filter(bookmarks => bookmarks.id !== id);
+    setBookmarks(remainingBookmark);
   }
   return (
     <>
-      <div className='w-[90%] mx-auto'>
+      <div className='w-[80%] mx-auto'>
         <Header></Header>
         <div className='flex flex-row gap-6'>
           <Blogs handleBookmark={handleBookmark} handleReadTime={handleReadTime}></Blogs>
