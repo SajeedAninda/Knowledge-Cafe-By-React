@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Blog from "./Blog";
 
-export default function Blogs() {
+export default function Blogs({ handleBookmark }) {
     let [blogs, setBlogs] = useState([]);
     useEffect(() => {
         let url = "https://raw.githubusercontent.com/ProgrammingHero1/react-knowledge-cafe/main/public/blogs.json";
@@ -10,8 +10,8 @@ export default function Blogs() {
             .then(data => setBlogs(data));
     }, [])
     return (
-        <div>
-            {blogs.map(blogs => <Blog blogs={blogs}></Blog>)}
+        <div className="my-8 w-2/3">
+            {blogs.map((blogs, idx) => <Blog key={idx} handleBookmark={handleBookmark} blogs={blogs}></Blog>)}
         </div>
     )
 }
