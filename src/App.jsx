@@ -8,17 +8,24 @@ import Bookmarks from './Bookmarks'
 
 function App() {
   let [bookmarks, setBookmarks] = useState([]);
+  let [readTime, setReadTime] = useState(0);
+
   let handleBookmark = (title) => {
-      let newBookmarks=[...bookmarks,title];
-      setBookmarks(newBookmarks);
+    let newBookmarks = [...bookmarks, title];
+    setBookmarks(newBookmarks);
+  }
+
+  let handleReadTime = (reading_time) => {
+    let newReadTime = readTime + reading_time;
+    setReadTime(newReadTime);
   }
   return (
     <>
       <div className='w-[90%] mx-auto'>
         <Header></Header>
         <div className='flex flex-row gap-6'>
-          <Blogs handleBookmark={handleBookmark}></Blogs>
-          <Bookmarks bookmarks={bookmarks}></Bookmarks>
+          <Blogs handleBookmark={handleBookmark} handleReadTime={handleReadTime}></Blogs>
+          <Bookmarks bookmarks={bookmarks} readTime={readTime}></Bookmarks>
         </div>
       </div>
     </>

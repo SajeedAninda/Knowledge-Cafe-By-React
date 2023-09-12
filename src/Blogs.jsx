@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Blog from "./Blog";
 
-export default function Blogs({ handleBookmark }) {
+export default function Blogs({ handleBookmark, handleReadTime }) {
     let [blogs, setBlogs] = useState([]);
     useEffect(() => {
         let url = "https://raw.githubusercontent.com/ProgrammingHero1/react-knowledge-cafe/main/public/blogs.json";
@@ -11,7 +11,7 @@ export default function Blogs({ handleBookmark }) {
     }, [])
     return (
         <div className="my-8 w-2/3">
-            {blogs.map((blogs, idx) => <Blog key={idx} handleBookmark={handleBookmark} blogs={blogs}></Blog>)}
+            {blogs.map((blogs, idx) => <Blog key={idx} handleBookmark={handleBookmark} handleReadTime={handleReadTime} blogs={blogs}></Blog>)}
         </div>
     )
 }
