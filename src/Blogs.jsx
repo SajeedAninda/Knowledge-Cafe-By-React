@@ -10,7 +10,7 @@ export default function Blogs({ handleBookmark, handleReadTime }) {
             .then(data => setBlogs(data));
     }, [])
     return (
-        <div className="my-8 w-2/3">
+        <div className="my-8 w-full md:w-2/3">
             {blogs.map((blogs, idx) => <Blog key={idx} handleBookmark={handleBookmark} handleReadTime={handleReadTime} blogs={blogs}></Blog>)}
         </div>
     )

@@ -26,7 +26,7 @@ function App() {
     <>
       <div className='w-[80%] mx-auto'>
         <Header></Header>
-        <div className='flex flex-row gap-6'>
+        <div className='flex flex-col-reverse md:flex-row gap-6'>
           <Blogs handleBookmark={handleBookmark} handleReadTime={handleReadTime}></Blogs>
           <Bookmarks bookmarks={bookmarks} readTime={readTime}></Bookmarks>
         </div>
